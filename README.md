@@ -9,5 +9,5 @@ Currently, two official plugins are available:
 #my-react-portfolio
 
 
-Lighthouse report:
+Lighthouse report: <br />
 ![Screenshot 2024-10-02 at 19 26 41](https://github.com/user-attachments/assets/ac458bc3-726d-48ff-90a0-034be05d790c)
