@@ -1,0 +1,84 @@
+@use "../abstracts" as *;
+@use "../util" as *;
+
+.wrapper {
+    padding-inline: 1.5rem;
+    max-width: 1280px;
+    margin-inline: auto;
+
+    @include breakpoint(medium) {
+        padding-inline: 3rem;
+    }
+
+    @include breakpoint(large) {
+        padding-inline: 4rem;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    .left-col,
+    .right-col {
+        padding-block: 3rem;
+        margin-bottom: 0;
+    }
+
+    @include breakpoint(large) {
+        justify-content: space-between;
+        flex-direction: row;
+
+        .left-col {
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+            max-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            padding-block: 5rem 8rem;
+        }
+
+        .right-col {
+            max-width: 35rem;
+            padding: 5rem 1rem 8rem 1rem;
+        }
+    }
+}
+
+.section-title {
+    display: block;
+    padding-block: 1rem;
+
+    @include breakpoint(large) {
+        display: none;
+    }
+}
+
+@include breakpoint(xlarge) {
+    .hero-title {
+        font-size: 3rem;
+    }
+}
+
+.hero-position {
+    font-size: 1.25rem;
+}
+
+.hero-description {
+    max-width: 300px;
+    margin-block: 1rem;
+}
+
+.footer-text {
+    font-size: 0.813rem;
+    text-align: center;
+    color: var(--textColor);
+    margin-bottom: 4rem;
+
+    @include breakpoint(large) {
+        text-align: left;
+        margin-bottom: 0;
+    }
+}

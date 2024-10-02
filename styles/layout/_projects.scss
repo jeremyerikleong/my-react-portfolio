@@ -1,0 +1,100 @@
+@use "../abstracts" as *;
+@use "../util" as *;
+
+.project-card {
+    display: block;
+    margin-block: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 5px;
+
+    @include breakpoint(medium) {
+        @include flexCenter(flex, space-between, center, row-reverse);
+        border: 1px solid transparent;
+
+        .project-content {
+            margin-top: 1rem;
+            width: 400px;
+        }
+    }
+
+    @include breakpoint(large) {
+        padding-inline: 2rem;
+        margin-inline: -2rem;
+        transition: all 0.1s ease-in;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(1.3px);
+            -webkit-backdrop-filter: blur(1.3px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.1s ease-in;
+
+            .project-image img {
+                box-shadow: 0 0 3px var(--defaultLinkColor);
+            }
+
+            .project-title {
+                color: var(--activeLinkColor);
+
+                .arrow-up-right {
+                    top: -1px;
+                }
+            }
+        }
+
+        .project-content {
+            max-width: 300px;
+        }
+    }
+
+    .project-title {
+        position: relative;
+        color: var(--headerColor);
+        margin-block: 0.5rem;
+        transition: all 0.1s ease-in;
+
+        .arrow-up-right {
+            position: absolute;
+            @include widthHeight(16px, auto);
+            margin-left: 0.25rem;
+            top: 2px;
+        }
+    }
+
+    .project-description {
+        position: relative;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+    }
+
+    .project-image {
+        margin-top: 1rem;
+
+        img {
+            @include widthHeight(200px, auto);
+        }
+
+        @include breakpoint(large) {
+            img {
+                @include widthHeight(150px, auto);
+            }
+        }
+    }
+
+    .experience-techstack-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 1rem;
+
+        .experience-techstack {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            background-color: rgba(167, 208, 255, 10%);
+            color: var(--activeLinkColor);
+        }
+    }
+}

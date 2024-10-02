@@ -1,0 +1,118 @@
+@use "../abstracts" as *;
+@use "../util" as *;
+
+.experience-card {
+    @include flexCenter(flex, flex-start, flex-start, column);
+    padding-block: 1rem;
+    margin-block: 1rem;
+    border-radius: 5px;
+
+    &:first-child {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    @include breakpoint(medium) {
+        @include flexCenter(flex, space-between, flex-start, row);
+
+        &-content {
+            max-width: 400px;
+        }
+    }
+
+    @include breakpoint(large) {
+        border: 1px solid transparent;
+        transition: all 0.1s ease-in;
+        padding-inline: 2rem;
+        margin-inline: -2rem;
+
+        &:first-child {
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(1.3px);
+            -webkit-backdrop-filter: blur(1.3px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.1s ease-in;
+
+            .experience-location-text .arrow-up-right {
+                position: absolute;
+                top: -3px;
+            }
+        }
+
+        &-content {
+            max-width: 300px;
+        }
+    }
+
+    .experience-duration-text {
+        color: var(--dateColor);
+        font-size: 0.75rem;
+
+        @include breakpoint(medium) {
+            margin-block: 0.5rem;
+        }
+    }
+
+    .experience-title-text {
+        color: var(--headerColor);
+        margin-block: 0.5rem;
+    }
+
+    .experience-content {
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+    }
+
+    .experience-location-text {
+        position: relative;
+        // font-size: 0.75rem;
+        transition: all 0.1s ease-in;
+
+        .arrow-up-right {
+            @include widthHeight(16px, auto);
+            position: absolute;
+            margin-left: 0.25rem;
+            top: -1px;
+        }
+    }
+
+    .experience-techstack-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 1rem;
+
+        .experience-techstack {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            background-color: rgba(167, 208, 255, 10%);
+            color: var(--activeLinkColor);
+        }
+    }
+}
+
+.btn-resume {
+    position: relative;
+
+    &:hover {
+        .arrow-up-right {
+            position: absolute;
+            top: 1px;
+        }
+    }
+
+    .arrow-up-right {
+        @include widthHeight(16px, auto);
+        position: absolute;
+        margin-left: 0.25rem;
+        top: 3px;
+    }
+}

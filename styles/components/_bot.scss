@@ -1,0 +1,88 @@
+@use "../abstracts" as *;
+@use "../util" as *;
+
+.rcb-chat-bot {
+    .rcb-toggle-button {
+        @include widthHeight(72px, 72px);
+        background-image: none !important;
+        box-shadow: none;
+
+        .rcb-toggle-icon {
+            @include widthHeight(64px, 64px);
+            background-size: contain;
+            border-radius: 0%;
+        }
+    }
+
+    .rcb-chat-window {
+        @include widthHeight(100%, 100vh);
+        bottom: 0;
+        right: 0;
+
+        @include breakpoint(medium) {
+            @include widthHeight(375px, 580px);
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .rcb-chat-header-container {
+            display: flex;
+            align-items: center;
+            border-bottom: none;
+
+            .rcb-chat-header {
+                display: flex;
+                align-items: center;
+
+                .rcb-bot-avatar {
+                    @include widthHeight(36px, 36px);
+                    background-size: contain;
+                }
+
+                .rcb-close-chat-icon {
+                    @include widthHeight(24px, 24px);
+
+                    &:after {
+                        border-radius: 8px;
+                    }
+
+                    &:hover:after {
+                        @include widthHeight(150%, 150%);
+                    }
+                }
+            }
+        }
+
+        .rcb-chat-body-container {
+            width: unset;
+            backdrop-filter: blur(40px) saturate(1.3);
+            padding: 1rem;
+
+            .rcb-bot-message,
+            .rcb-user-message {
+                padding: 1rem;
+                max-width: 80% !important;
+            }
+
+            .rcb-user-message {
+                margin-right: 0;
+                background-color: #5d9ce2 !important;
+            }
+
+            .rcb-bot-message {
+                margin-left: 0;
+            }
+
+            .rcb-options-container {
+                max-width: 80%;
+                margin-left: 0;
+
+                .rcb-options {
+                    background-color: transparent !important;
+                    border-radius: 2.6rem;
+                    padding: 1rem 1.5rem;
+                }
+            }
+        }
+    }
+}

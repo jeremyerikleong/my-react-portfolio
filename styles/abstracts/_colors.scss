@@ -1,0 +1,30 @@
+:root {
+    --bgColor: #0f172a;
+    --textColor: #94a3b8;
+    --headerColor: #e2e8f0;
+    --defaultLinkColor: #e2e8f0;
+    --activeLinkColor: #5d9ce2;
+    --dateColor: #a8b2d1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--headerColor);
+}
+
+p {
+    color: var(--textColor);
+}
+
+a {
+    color: var(--defaultLinkColor);
+
+    &:hover,
+    &:active {
+        color: var(--activeLinkColor);
+    }
+}

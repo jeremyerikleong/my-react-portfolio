@@ -1,0 +1,22 @@
+::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bgColor);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--textColor);
+    border-radius: 20px;
+
+    &:hover {
+        background-color: var(--subtitleColor);
+    }
+}
+
+// moz scrollbar
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--textColor) var(--bgColor);
+}

@@ -1,0 +1,18 @@
+@use "../abstracts" as *;
+@use "../util" as *;
+
+.social-media-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-block: 1rem;
+    gap: 1.5rem;
+
+    .social-media-icon a {
+        color: var(--defaultLinkColor);
+
+        &:hover {
+            text-shadow: 0 0 5px var(--defaultLinkColor);
+        }
+    }
+}

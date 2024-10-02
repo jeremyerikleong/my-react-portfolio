@@ -1,0 +1,43 @@
+@use "../abstracts" as *;
+@use "../util" as *;
+
+.navbar-container {
+    display: none;
+
+    @include breakpoint(large) {
+        display: block;
+    }
+
+    .nav-links {
+        margin-block: 3rem;
+
+        li {
+            margin-block: 1rem;
+
+            .nav-anchor {
+                font-size: 0.875rem;
+                @include flexCenter(flex, flex-start, center, row);
+                color: var(--textColor);
+                cursor: pointer;
+
+                .nav-line {
+                    @include widthHeight(25px, 1px);
+                    margin-right: 1rem;
+                    background-color: var(--textColor);
+                    transition: all 0.2s;
+                }
+
+                &.active,
+                &:hover,
+                &:active {
+                    color: var(--headerColor);
+
+                    .nav-line {
+                        width: 50px;
+                        background-color: var(--headerColor);
+                    }
+                }
+            }
+        }
+    }
+}

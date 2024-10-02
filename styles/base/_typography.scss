@@ -1,0 +1,25 @@
+h1,
+h2,
+h3,
+p {
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+p {
+    font-weight: 400;
+}
+
+a,
+a:visited,
+a:active {
+    text-decoration: none;
+}
