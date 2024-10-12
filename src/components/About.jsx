@@ -14,7 +14,7 @@ function About(){
             </p>
 
             <p className="about-text">
-                When I am not working, I enjoy spending quality time with my cats, reading, cooking, or listening to music.
+                When I am away from my computer, I usually enjoy spending quality time with my cats, reading, cooking, or listening to music.
             </p>
         </section>
     )

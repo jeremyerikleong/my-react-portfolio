@@ -27,7 +27,7 @@ const listOfProjects = [
         project_techstack: ['HTML', 'SCSS', 'JavaScript', 'Netlify'],
         project_link: "https://jeremyl95.github.io/music-player/",
         project_source_code: "https://github.com/JeremyL95/music-player",
-        project_screenshot: '/assets/projects/project-3.webp'
+        project_screenshot: '/assets/projects/project-1.webp'
     },
     {
         id: 'p2',
@@ -36,7 +36,7 @@ const listOfProjects = [
         project_techstack: ['HTML', 'SCSS', 'JavaScript', 'Netlify'],
         project_link: "https://v1.jeremyerikleong.com",
         project_source_code: "https://github.com/JeremyL95/my-portfolio",
-        project_screenshot: '/assets/projects/project-5.webp'
+        project_screenshot: '/assets/projects/project-2.webp'
     },
     {
         id: 'p3',
@@ -45,25 +45,25 @@ const listOfProjects = [
         project_techstack: ['HTML', 'SCSS', 'JavaScript', 'Netlify'],
         project_link: "https://pokedex-demo-v2.netlify.app/",
         project_source_code: "https://github.com/JeremyL95/pokedex-js-v2",
-        project_screenshot: '/assets/projects/project-4.webp'
+        project_screenshot: '/assets/projects/project-3.webp'
     },
     {
         id: 'p4',
-        project_title: 'PokéSlot JS',
-        project_description: 'A fan-made PokéSlot demo.',
-        project_techstack: ['HTML', 'SCSS', 'JavaScript', 'Netlify'],
-        project_link: "https://pokeslot-eevee-edition.netlify.app/",
-        project_source_code: "https://github.com/JeremyL95/pokeslot-eevee-edition",
-        project_screenshot: '/assets/projects/project-3.webp'
+        project_title: 'Recipe App',
+        project_description: 'A cooking app designed for home chefs and foodies, with easy, tasty homemade recipes.',
+        project_techstack: ['React.js', 'Tailwind CSS', 'Daisy UI', 'Material UI', 'Recipe Search API', 'Vercel'],
+        project_link: "https://recipe-app-two-ebon.vercel.app/",
+        project_source_code: "https://github.com/JeremyL95/recipe-app",
+        project_screenshot: '/assets/projects/project-4.webp'
     },
     {
         id: 'p5',
-        project_title: 'Weather Pro',
-        project_description: 'A basic weather web app developed using Express framework.',
-        project_techstack: ['HTML', 'SCSS', 'JavaScript', 'Weather API', 'Express', 'Heroku'],
-        project_link: "https://github.com/JeremyL95/weather-pro",
-        project_source_code: "https://my-weather-pro.herokuapp.com/",
-        project_screenshot: '/assets/projects/project-3.webp'
+        project_title: 'Wordle JS',
+        project_description: 'A word-guessing game developed using vanilla JavaScript.',
+        project_techstack: ['HTML', 'SCSS', 'JavaScript', 'Netlify'],
+        project_link: "https://simple-wordle-js.netlify.app/",
+        project_source_code: "https://github.com/JeremyL95/wordle-js",
+        project_screenshot: '/assets/projects/project-5.webp'
     }
 ]
 
