@@ -33,7 +33,7 @@ const listOfProjects = [
         id: 'p2',
         project_title: 'My Portfolio (v1)',
         project_description: 'This is my initial portfolio website, developed in 2022.',
-        project_techstack: ['HTML', 'SCSS', 'JavaScript', 'Netlify'],
+        project_techstack: ['HTML', 'SCSS', 'JavaScript', 'Parcel', 'Netlify'],
         project_link: "https://v1.jeremyerikleong.com",
         project_source_code: "https://github.com/JeremyL95/my-portfolio",
         project_screenshot: '/assets/projects/project-2.webp'
