@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 
-function SocialMedia(){
+function SocialMedia() {
     const socialMediaArr = [
         {
             id: '1',
@@ -11,13 +11,13 @@ function SocialMedia(){
         {
             id: '2',
             platform: 'Codepen',
-            url: 'https://codepen.io/JeremyL95',
+            url: 'https://codepen.io/jeremyerikleong',
             icon: 'fa-codepen'
         },
         {
             id: '3',
             platform: 'Github',
-            url: 'https://github.com/JeremyL95',
+            url: 'https://github.com/jeremyerikleong',
             icon: 'fa-github'
         },
         {
@@ -34,15 +34,15 @@ function SocialMedia(){
         },
     ]
 
-    return(
+    return (
         <ul className="social-media-container">
-            {socialMediaArr && socialMediaArr.map(socialMedia =>{
+            {socialMediaArr && socialMediaArr.map(socialMedia => {
                 return <li className="social-media-icon" key={uuid()}>
-                            <a href={socialMedia.url} target="_blank" aria-label={socialMedia.platform}>
-                                <i className={'fab fa-xl ' + socialMedia.icon}></i>
-                            </a>
-                        </li>
-                })
+                    <a href={socialMedia.url} target="_blank" aria-label={socialMedia.platform}>
+                        <i className={'fab fa-xl ' + socialMedia.icon}></i>
+                    </a>
+                </li>
+            })
             }
         </ul>
     )

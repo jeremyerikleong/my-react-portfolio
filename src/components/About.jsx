@@ -1,12 +1,12 @@
 import SectionTitle from './SectionTitle';
 
-function About(){
-    return(
+function About() {
+    return (
         <section id="#about">
             <SectionTitle title="About" />
 
             <p className="about-text">
-                Over the past three years, I have gained experience in various areas of digital design, including illustration, UI/UX, front-end development, and responsive web design. I am proud in having embraced a wide range of roles.
+                Over the past two years, I have gained experience in various areas of digital design, including illustration, UI/UX, front-end development, and responsive web design. I am proud in having embraced a wide range of roles.
             </p>
 
             <p className="about-text">
