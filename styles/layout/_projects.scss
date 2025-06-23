@@ -2,13 +2,25 @@
 @use "../util" as *;
 
 .project-card {
-    display: block;
-    margin-block: 1rem;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-radius: 5px;
 
+    &:hover {
+        .project-title {
+            color: var(--activeLinkColor);
+
+            .arrow-up-right {
+                top: -1px;
+            }
+        }
+    }
+
     @include breakpoint(medium) {
         @include flexCenter(flex, space-between, center, row-reverse);
+        margin-block: 1rem 2rem;
         border: 1px solid transparent;
 
         .project-content {
@@ -19,7 +31,7 @@
 
     @include breakpoint(large) {
         padding-inline: 2rem;
-        margin-inline: -2rem;
+        margin: 1rem -2rem;
         transition: all 0.1s ease-in;
 
         &:hover {
@@ -33,14 +45,6 @@
 
             .project-image img {
                 box-shadow: 0 0 3px var(--defaultLinkColor);
-            }
-
-            .project-title {
-                color: var(--activeLinkColor);
-
-                .arrow-up-right {
-                    top: -1px;
-                }
             }
         }
 
@@ -70,10 +74,14 @@
     }
 
     .project-image {
-        margin-top: 1rem;
+        margin-bottom: 1rem;
 
         img {
             @include widthHeight(200px, auto);
+        }
+
+        @include breakpoint(medium) {
+            margin-block: 1rem 0;
         }
 
         @include breakpoint(large) {

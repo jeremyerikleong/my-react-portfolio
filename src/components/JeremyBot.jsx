@@ -1,7 +1,7 @@
 import ChatBot from 'react-chatbotify';
 
-function ChatBotHeader(){
-    return(
+function ChatBotHeader() {
+    return (
         <div>
             <div>Jeremy Bot</div>
             <div>Ask me a question</div>
@@ -9,9 +9,9 @@ function ChatBotHeader(){
     )
 }
 
-function JeremyBot(){
+function JeremyBot() {
     // list of questions
-    const helpOptions = ["I am seeking for your previous portfolio.", "I would like to extend a greeting.", "We are interested in offering you a position."];
+    const helpOptions = ["I am seeking for your previous portfolio.", "I would like to extend a greeting.", "Can you send me your resume please?", "We are interested in offering you a position."];
 
     // config
     const settings = {
@@ -19,12 +19,12 @@ function JeremyBot(){
             fontFamily: 'Inter, sans-serif',
             showFooter: false,
             showInputRow: false
-          },
+        },
         chatWindow: {
             showScrollbar: true,
         },
 
-        
+
         // chatbox bubble pop up
         header: {
             title: <ChatBotHeader />,
@@ -58,8 +58,8 @@ function JeremyBot(){
 
     // themes
     const themes = [
-		{id: "simple_blue", version: "0.1.0"}
-	]
+        { id: "simple_blue", version: "0.1.0" }
+    ]
 
     // styles
     const styles = {
@@ -77,7 +77,7 @@ function JeremyBot(){
     // flow
     const flow = {
         start: {
-            message: "Hello!", 
+            message: "Hello!",
             transition: {
                 duration: 1000
             },
@@ -99,50 +99,50 @@ function JeremyBot(){
         },
 
         prompt_again: {
-			message: "Is there any additional assistance you require?",
-			options: helpOptions,
-			path: "process_options"
-		},
+            message: "Is there any additional assistance you require?",
+            options: helpOptions,
+            path: "process_options"
+        },
 
         // fall back
         unknown_input: {
-			message: `I apologize, but I am unable to comprehend your message. 😢`,
-			options: helpOptions,
-			path: "process_options"
-		},
+            message: `I apologize, but I am unable to comprehend your message. 😢`,
+            options: helpOptions,
+            path: "process_options"
+        },
 
         // return this message if user opt to say hi
         say_hi: {
             message: 'Hello!',
-			transition: {
+            transition: {
                 duration: 1000
             },
-			path: "say_hi_2"
+            path: "say_hi_2"
         },
 
         say_hi_2: {
             message: 'I hope you find my portfolio website engaging and informative.',
-			transition: {
+            transition: {
                 duration: 1000
             },
-			path: "prompt_again"
+            path: "prompt_again"
         },
 
         // return these message if user opt to hire me 
         prompt_hire_me: {
             message: 'Exciting Time! 🤓',
-			transition: {
+            transition: {
                 duration: 1000
             },
-			path: "prompt_mail_me"
+            path: "prompt_mail_me"
         },
 
         prompt_mail_me: {
             message: 'Please feel free to send me a message, and we can discuss this further.',
-			transition: {
+            transition: {
                 duration: 1000
             },
-			path: "mail_me"
+            path: "mail_me"
         },
 
         mail_me: {
@@ -150,53 +150,62 @@ function JeremyBot(){
                 duration: 1000
             },
             function: () => {
-                       window.open('mailto:jeremythegreat95@gmail.com');
-                    },
+                window.open('mailto:jeremythegreat95@gmail.com');
+            },
             path: 'prompt_again'
         },
 
         // options output
         process_options: {
-			transition: {
+            transition: {
                 duration: 0
             },
-			chatDisabled: true,
+            chatDisabled: true,
 
-			path: async (params) => {
-				let link = "";
+            path: async (params) => {
+                let link, cv = "";
 
-				switch (params.userInput) {
-				case "I am seeking for your previous portfolio.":
-					link = "https://v1.jeremyerikleong.com";
+                switch (params.userInput) {
+                    case "I am seeking for your previous portfolio.":
+                        link = "https://v1.jeremyerikleong.com";
 
-                    await params.injectMessage("Please hold on for a moment, and I will direct you shortly.");
-                    setTimeout(() => {
-                        window.open(link);
-                    }, 2000)
-                    return "repeat";
-    
-				case "I would like to extend a greeting.":
-                    return "say_hi";
+                        await params.injectMessage("Please hold on for a moment, and I will direct you shortly.");
+                        setTimeout(() => {
+                            window.open(link);
+                        }, 3000)
+                        return "repeat";
 
-				case "We are interested in offering you a position.":
-                    return "prompt_hire_me";
-	
-				default:
-					return "unknown_input";
-				}
-			},
-		},
+                    case "Can you send me your resume please?":
+                        cv = "https://cv.jeremyerikleong.com";
+
+                        await params.injectMessage("Sure, I'm happy to share my resume. I will direct you shortly for your review. Thank you for your interest!");
+                        setTimeout(() => {
+                            window.open(cv);
+                        }, 3000)
+                        return "repeat";
+
+                    case "I would like to extend a greeting.":
+                        return "say_hi";
+
+                    case "We are interested in offering you a position.":
+                        return "prompt_hire_me";
+
+                    default:
+                        return "unknown_input";
+                }
+            },
+        },
 
         repeat: {
-			transition: {
+            transition: {
                 duration: 3000
             },
-			path: "prompt_again"
-		},
+            path: "prompt_again"
+        },
     }
 
     return (
-        <ChatBot themes={themes} styles={styles} flow={flow} settings={settings}/>
+        <ChatBot themes={themes} styles={styles} flow={flow} settings={settings} />
     )
 }
 
