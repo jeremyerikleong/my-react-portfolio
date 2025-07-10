@@ -22,20 +22,20 @@ const workExperiences = [
 const listOfProjects = [
     {
         id: 'p3',
-        project_title: 'Anime List',
-        project_description: 'A mini web app that allows user to track trending searches and discover their favorite anime.',
-        project_techstack: ['React.js', 'Tailwind CSS', 'Appwrite', 'Vercel'],
-        project_link: "https://react-anime-list-lime.vercel.app/",
-        project_source_code: "https://github.com/Jeremyerikleong/react-anime-list",
+        project_title: 'Apple Demo Website',
+        project_description: 'A visually rich and interactive experience with fancy scrolling animations developed using GSAP and Three.js.',
+        project_techstack: ['React.js', 'GSAP', 'Three.js', 'Netlify'],
+        project_link: "https://react-gsap-iphone-website-demo.netlify.app/",
+        project_source_code: "https://github.com/jeremyerikleong/react-apple-website",
         project_screenshot: '/assets/projects/project-3.webp'
     },
     {
         id: 'p2',
         project_title: 'Blogger',
         project_description: 'A full-stack blog application developed using PERN stack.',
-        project_techstack: ['React.js', 'Tailwind CSS', 'Node.js', 'Express', 'PostgreSQL', 'Vercel'],
-        project_link: "",
-        project_source_code: "",
+        project_techstack: ['React.js', 'Tailwind CSS', 'Node.js', 'Express', 'PostgreSQL', 'AWS', 'Railway'],
+        project_link: "https://react-blogger.up.railway.app/login",
+        project_source_code: "https://github.com/jeremyerikleong/blogger-frontend",
         project_screenshot: '/assets/projects/project-2.webp'
     },
     {
