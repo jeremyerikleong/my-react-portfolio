@@ -6,7 +6,6 @@ import Footer from './components/Footer.jsx';
 import JeremyBot from './components/JeremyBot.jsx';
 
 function App() {
-
   return (
     <div className="container">
       <section className="left-col">
