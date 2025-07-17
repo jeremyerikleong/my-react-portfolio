@@ -205,7 +205,16 @@ function JeremyBot() {
     }
 
     return (
-        <ChatBot themes={themes} styles={styles} flow={flow} settings={settings} />
+        <div className="bot-container">
+            <div className="bot-speech-bubble">
+                <div className="bot-speech-bubble-dot-container">
+                    <div></div>
+                </div>
+
+                <span></span>
+            </div>
+            <ChatBot themes={themes} styles={styles} flow={flow} settings={settings} />
+        </div>
     )
 }
 
