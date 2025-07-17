@@ -3,15 +3,15 @@ import ChatBot from 'react-chatbotify';
 function ChatBotHeader() {
     return (
         <div>
-            <div>Jeremy Bot</div>
-            <div>Ask me a question</div>
+            <div className="bot-header">Jeremy Bot</div>
+            <div className="bot-subheader">Ask me a question</div>
         </div>
     )
 }
 
 function JeremyBot() {
     // list of questions
-    const helpOptions = ["I am seeking for your previous portfolio.", "I would like to extend a greeting.", "Can you send me your resume please?", "We are interested in offering you a position."];
+    const helpOptions = ["I would like to extend a greeting.", "I am seeking for your previous portfolio.", "Can you send me your resume please?", "We are interested in offering you a position."];
 
     // config
     const settings = {
@@ -58,15 +58,48 @@ function JeremyBot() {
 
     // themes
     const themes = [
-        { id: "simple_blue", version: "0.1.0" }
+        { id: "simple_blue", version: "0.1.0" },
     ]
 
     // styles
     const styles = {
         headerStyle: {
-            color: '#FFFFFF',
-            background: '#5d9ce2',
+            color: '#EAEAEA',
+            background: '#303030',
             padding: '10px',
+        },
+
+        // bots
+        botBubbleStyle: {
+            background: '#343541',
+            color: '#EAEAEA',
+            // border: '2px solid #5d5f67'
+        },
+
+        botOptionStyle: {
+            borderRadius: '10px',
+            background: '#343541',
+            color: '#EAEAEA',
+            border: '2px solid #6969698e',
+            boxShadow: 'rgba(0, 0, 0, 0.2) 0px 0px 5px 0px',
+        },
+
+        botOptionHoveredStyle: {
+            borderRadius: '10px',
+            border: '2px solid #d3d4d6ff',
+            color: '#ffffff'
+        },
+
+        // users
+        userBubbleStyle: {
+            backgroundColor: '#323232',
+            // border: '2px solid #595b5e',
+            color: '#ffffff'
+        },
+
+        // chat
+        chatWindowStyle: {
+            backgroundColor: '#212121',
         },
 
         chatButtonStyle: {
@@ -166,13 +199,16 @@ function JeremyBot() {
                 let link, cv = "";
 
                 switch (params.userInput) {
+                    case "I would like to extend a greeting.":
+                        return "say_hi";
+
                     case "I am seeking for your previous portfolio.":
                         link = "https://v1.jeremyerikleong.com";
 
                         await params.injectMessage("Please hold on for a moment, and I will direct you shortly.");
                         setTimeout(() => {
                             window.open(link);
-                        }, 3000)
+                        }, 4000)
                         return "repeat";
 
                     case "Can you send me your resume please?":
@@ -181,11 +217,8 @@ function JeremyBot() {
                         await params.injectMessage("Sure, I'm happy to share my resume. I will direct you shortly for your review. Thank you for your interest!");
                         setTimeout(() => {
                             window.open(cv);
-                        }, 3000)
+                        }, 4000)
                         return "repeat";
-
-                    case "I would like to extend a greeting.":
-                        return "say_hi";
 
                     case "We are interested in offering you a position.":
                         return "prompt_hire_me";
@@ -198,7 +231,7 @@ function JeremyBot() {
 
         repeat: {
             transition: {
-                duration: 3000
+                duration: 4000
             },
             path: "prompt_again"
         },
@@ -208,7 +241,9 @@ function JeremyBot() {
         <div className="bot-container">
             <div className="bot-speech-bubble">
                 <div className="bot-speech-bubble-dot-container">
-                    <div></div>
+                    <div className="bot-speech-bubble-dot"></div>
+                    <div className="bot-speech-bubble-dot"></div>
+                    <div className="bot-speech-bubble-dot"></div>
                 </div>
 
                 <span></span>
