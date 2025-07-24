@@ -64,6 +64,15 @@ const listOfProjects = [
         project_link: "https://www.theboringdevs.com/",
         project_source_code: "https://github.com/jeremyerikleong/next-js-company-website",
         project_screenshot: '/assets/projects/project-5.webp'
+    },
+    {
+        id: 'p6',
+        project_title: 'Cyberpunk Light Aquamarine Theme',
+        project_description: 'A light-aquamarine, cyberpunk-inspired theme for Visual Studio Code.',
+        project_techstack: [],
+        project_link: "https://cyberpunk-aquamarine-theme.netlify.app/",
+        project_source_code: "https://github.com/jeremyerikleong/cyberpunk-light-aquamarine-theme",
+        project_screenshot: '/assets/projects/project-6.webp'
     }
 ]
 
