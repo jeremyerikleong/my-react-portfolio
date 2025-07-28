@@ -1,0 +1,171 @@
+@use "../abstracts" as *;
+@use "../util" as *;
+
+.archive-wrapper {
+    min-height: 100dvh;
+    padding-block: 5rem 8rem;
+    color: var(--headerColor);
+
+    .navigation-container {
+        margin-bottom: 1rem;
+
+        .btn-navigation {
+            color: var(--activeLinkColor);
+            cursor: pointer;
+
+            .arrow-left {
+                @include widthHeight(16px, auto);
+                transform: rotate(-135deg);
+                margin-right: 0.5rem;
+                transition: all 0.25s ease-in;
+            }
+
+            &:hover {
+                .arrow-left {
+                    margin-inline: -0.75rem 1.25rem;
+                }
+            }
+        }
+    }
+
+    .table-responsive-container {
+        margin-top: 2rem;
+
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+
+            thead tr {
+                text-align: left;
+                text-transform: capitalize;
+                border-bottom: 1px solid rgba(203, 213, 225, 0.1);
+
+                th {
+                    padding: 0.75rem 1rem 0.75rem 0;
+                    font-size: 0.875rem;
+                    font-weight: 500;
+                }
+
+                th:nth-child(3),
+                th:nth-child(4) {
+                    display: none;
+                }
+
+                @include breakpoint(medium) {
+                    th:nth-child(4) {
+                        display: table-cell;
+                    }
+                }
+
+                @include breakpoint(large) {
+                    th:nth-child(3) {
+                        display: table-cell;
+                    }
+                }
+            }
+
+            tbody tr {
+                border-bottom: 1px solid rgba(203, 213, 225, 0.1);
+
+                td {
+                    padding: 1rem 1rem 1rem 0;
+                }
+
+                td:nth-child(1) {
+                    color: var(--textColor);
+                }
+
+                td:nth-child(3),
+                td:nth-child(4) {
+                    display: none;
+                }
+
+                @include breakpoint(medium) {
+                    td:nth-child(4) {
+                        display: table-cell;
+                        font-size: 0.875rem;
+
+                        span {
+                            position: relative;
+
+                            a,
+                            .arrow-up-right {
+                                color: var(--textColor);
+                            }
+
+                            .arrow-up-right {
+                                position: absolute;
+                                @include widthHeight(16px, auto);
+                                margin-left: 0.25rem;
+                                top: 2px;
+                            }
+
+                            &:hover {
+                                a,
+                                .arrow-up-right {
+                                    color: var(--activeLinkColor);
+                                }
+
+                                .arrow-up-right {
+                                    top: -1px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @include breakpoint(large) {
+                    td:nth-child(3) {
+                        display: table-cell;
+                    }
+                }
+            }
+
+            .project-year {
+                font-size: 0.875rem;
+            }
+
+            .project-name {
+                min-width: 12rem;
+                color: var(--headerColor);
+
+                span {
+                    position: relative;
+
+                    .arrow-up-right {
+                        position: absolute;
+                        @include widthHeight(16px, auto);
+                        margin-left: 0.25rem;
+                        top: 2px;
+                    }
+
+                    &:hover {
+                        a,
+                        .arrow-up-right {
+                            color: var(--activeLinkColor);
+                        }
+
+                        .arrow-up-right {
+                            top: -1px;
+                        }
+                    }
+                }
+            }
+
+            .archive-list-container {
+                max-width: 22rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .archive-list-techstack {
+                    font-size: 0.75rem;
+                    padding: 0.25rem 0.75rem;
+                    border-radius: 15px;
+                    background-color: rgba(167, 208, 255, 10%);
+                    color: var(--activeLinkColor);
+                }
+            }
+        }
+    }
+}
