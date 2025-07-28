@@ -1,5 +1,4 @@
 import Navbar from "./Navbar.jsx";
-import { BrowserRouter } from "react-router-dom"
 
 function Header() {
     return (
@@ -11,9 +10,7 @@ function Header() {
                 I develop websites with a strong emphasis on responsive design, user-centric principles, and accessibility.
             </p>
 
-            <BrowserRouter>
-                <Navbar />
-            </BrowserRouter>
+            <Navbar />
         </div>
     )
 }

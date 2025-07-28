@@ -1,7 +1,7 @@
 import SectionTitle from "./SectionTitle";
 import TechStack from "./TechStack.jsx";
 import { v4 as uuid } from 'uuid'
-import { workExperiences } from "../data.js";
+import { workExperiences } from "../constants/data.js";
 // import Pdf from "../pdf/jeremyerikleong_resume.pdf";
 
 function Experience() {

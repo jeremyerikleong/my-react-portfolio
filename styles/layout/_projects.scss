@@ -106,3 +106,23 @@
         }
     }
 }
+
+.btn-resume {
+    position: relative;
+    cursor: pointer;
+
+    .arrow-up-right2 {
+        @include widthHeight(16px, auto);
+        position: absolute;
+        margin-left: 0.5rem;
+        transform: rotate(45deg);
+        top: 3px;
+        transition: all 0.25s ease-in;
+    }
+
+    &:hover {
+        .arrow-up-right2 {
+            margin-left: 0.75rem;
+        }
+    }
+}
