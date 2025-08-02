@@ -21,12 +21,12 @@ const workExperiences = [
 
 const listOfProjects = [
     {
-        id: 'p2',
-        project_title: 'Blogger',
-        project_description: 'A full-stack blog application developed using PERN stack.',
-        project_techstack: ['React.js', 'Tailwind CSS', 'Node.js', 'Express', 'PostgreSQL', 'AWS', 'Railway'],
-        project_link: "https://react-blogger.up.railway.app/login",
-        project_screenshot: '/assets/projects/project-2.webp'
+        id: 'p1',
+        project_title: 'Music Player',
+        project_description: 'A music player built using vanilla JavaScript.',
+        project_techstack: ['HTML', 'SCSS', 'JavaScript', 'Github Page'],
+        project_link: "https://jeremyerikleong.github.io/music-player/",
+        project_screenshot: '/assets/projects/project-1.webp'
     },
     {
         id: 'p4',
@@ -72,6 +72,13 @@ const archivedProjectTableData = [
         project_link: 'react-gsap-iphone-website-demo.netlify.app',
     },
     {
+        project_id: 'td7',
+        project_year: 2025,
+        project_title: 'Blogger',
+        project_techstack: ['React.js', 'Tailwind CSS', 'Node.js', 'Express', 'PostgreSQL', 'AWS', 'Railway'],
+        project_link: '',
+    },
+    {
         project_id: 'td3',
         project_year: 2025,
         project_title: 'Anime List',
@@ -98,13 +105,6 @@ const archivedProjectTableData = [
         project_title: 'Luxberry Training',
         project_techstack: ['HTML', 'CSS', 'Bootstrap 5', 'JavaScript'],
         project_link: 'www.luxberrytraining.com',
-    },
-    {
-        project_id: 'td7',
-        project_year: 2022,
-        project_title: 'Music Player',
-        project_techstack: ['HTML', 'SCSS', 'JavaScript', 'Github Page'],
-        project_link: 'jeremyerikleong.github.io/music-player',
     },
     {
         project_id: 'td8',
