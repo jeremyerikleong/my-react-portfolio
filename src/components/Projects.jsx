@@ -9,7 +9,7 @@ function Projects() {
 
     return (
         <section id="#projects">
-            <SectionTitle title="Projects" />
+            <SectionTitle title="Pinned Projects" />
 
             {listOfProjects && listOfProjects.map(list => {
                 return <a href={list.project_link} target="_blank" key={list.id} className="project-card">
