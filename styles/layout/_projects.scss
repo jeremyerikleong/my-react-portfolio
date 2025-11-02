@@ -73,6 +73,17 @@
         margin-top: 0.5rem;
     }
 
+    .project-download-amount-display {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: -0.25rem;
+
+        .download-amount {
+            font-size: 0.75rem;
+        }
+    }
+
     .project-image {
         margin-bottom: 1rem;
 

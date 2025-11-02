@@ -3,9 +3,51 @@ import TechStack from './TechStack.jsx';
 import { v4 as uuid } from 'uuid';
 import { listOfProjects } from '../constants/data.js';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { FaDownload } from 'react-icons/fa6';
 
 function Projects() {
     let navigate = useNavigate();
+    const ICON_SIZE = 12;
+    const ICON_COLOR = "#5d9ce2";
+    const [downloadAmount, setDownloadAmount] = useState(0);
+
+    useEffect(() => {
+        async function fetchDownloadAmount() {
+            try {
+                const response = await fetch(
+                    "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Accept": "application/json;api-version=3.0-preview.1",
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            filters: [
+                                {
+                                    criteria: [
+                                        { filterType: 7, value: "JeremyErikLeong.cyberpunk-light-aquamarine-theme" },
+                                    ],
+                                },
+                            ],
+                            flags: 914,
+                        }),
+                    }
+                );
+
+                const data = await response.json();
+                const results = data.results?.[0]?.extensions?.[0].statistics ?? [];
+
+                const displayResult = results.find(result => result.statisticName === "install");
+                setDownloadAmount(displayResult?.value ?? 0);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        fetchDownloadAmount();
+    }, []);
 
     return (
         <section id="#projects">
@@ -28,6 +70,14 @@ function Projects() {
                                 return <TechStack key={uuid()} label={techstack} />
                             })}
                         </ul>
+
+                        {list.id === "p6" ?
+                            <div className="project-download-amount-display">
+                                <FaDownload size={ICON_SIZE} color={ICON_COLOR} />
+                                <p className="download-amount">
+                                    {downloadAmount.toLocaleString()} installs
+                                </p>
+                            </div> : null}
                     </div>
 
                     <div className="project-image">
