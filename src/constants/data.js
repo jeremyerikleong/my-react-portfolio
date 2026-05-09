@@ -54,14 +54,14 @@ const listOfProjects = [
     }
 ]
 
-const archivedProjectTableHeader = ['year', 'project', 'tech stack', 'link']
+const archivedProjectTableHeader = ['year', 'project', 'tech stack']
 
 const archivedProjectTableData = [
     {
         project_id: 'td25',
         project_year: 2026,
         project_title: "WSChat",
-        project_techstack: ['Node.js', 'EJS', 'CSS', 'Socket.io', 'Render'],
+        project_techstack: ['Node.js', 'EJS', 'CSS', 'Socket.IO', 'Render'],
         project_link: 'wschat-2gw7.onrender.com'
     },
     {

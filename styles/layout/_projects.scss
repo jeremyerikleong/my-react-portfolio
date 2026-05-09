@@ -19,7 +19,7 @@
     }
 
     @include breakpoint(medium) {
-        @include flexCenter(flex, space-between, center, row-reverse);
+        @include flexCenter(flex, space-between, start, row-reverse);
         margin-bottom: 2rem;
         border: 1px solid transparent;
 

@@ -10,7 +10,11 @@
         margin-bottom: 1rem;
 
         .btn-navigation {
+            display: flex;
+            background-color: transparent;
             color: var(--activeLinkColor);
+            outline: none;
+            border: none;
             cursor: pointer;
 
             .arrow-left {
@@ -150,6 +154,10 @@
                         }
                     }
                 }
+            }
+
+            .project-link {
+                cursor: pointer;
             }
 
             .archive-list-container {

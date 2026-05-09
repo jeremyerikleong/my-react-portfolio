@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { archivedProjectTableHeader, archivedProjectTableData } from '../constants/data';
-import { isTablet, isBrowser } from 'react-device-detect';
 import { Helmet } from 'react-helmet-async';
 
 export default function Archive() {
@@ -10,7 +9,12 @@ export default function Archive() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [location]);
+    }, [location.pathname]);
+
+    function normalizeUrl(url) {
+        if (!url) return '#';
+        return url.startsWith('http') ? url : `https://${url}`;
+    }
 
     return (
         <>
@@ -23,10 +27,14 @@ export default function Archive() {
 
             <main className="archive-wrapper">
                 <div className="navigation-container">
-                    <a className="btn-navigation" onClick={() => navigate('/')}>
+                    <button
+                        type="button"
+                        className="btn-navigation"
+                        onClick={() => navigate('/')}
+                    >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="arrow-left" aria-hidden="true"><path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd"></path></svg>
                         Jeremy Erik Leong
-                    </a>
+                    </button>
                     <h1 className="hero-title">All Projects</h1>
                 </div>
 
@@ -35,7 +43,7 @@ export default function Archive() {
                         <thead>
                             <tr>
                                 {archivedProjectTableHeader.map((header, index) => (
-                                    <th key={index}>{header}</th>
+                                    <th scope="col" key={index}>{header}</th>
                                 ))}
                             </tr>
                         </thead>
@@ -44,18 +52,20 @@ export default function Archive() {
                                 <tr key={data.project_id}>
                                     <td className="project-year">{data.project_year}</td>
 
-                                    {isTablet || isBrowser ? <td className="project-name">{data.project_title}</td> :
-
-                                        <td className="project-name">
-                                            {data.project_link !== "" ? <span>
-                                                <a href={`https://${data.project_link}`} target="_blank">
-                                                    {data.project_title}
-                                                </a>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="arrow-up-right" aria-hidden="true"><path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd"></path></svg>
-                                            </span> :
-                                                <span>{data.project_title}</span>
-                                            }
-                                        </td>}
+                                    <td className="project-name">
+                                        {data.project_link ? (
+                                            <a
+                                                href={normalizeUrl(data.project_link)}
+                                                className="project-link"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {data.project_title}
+                                            </a>
+                                        ) : (
+                                            <span>{data.project_title}</span>
+                                        )}
+                                    </td>
 
                                     <td>
                                         <ul className="archive-list-container">
@@ -66,18 +76,6 @@ export default function Archive() {
                                             ))}
                                         </ul>
                                     </td>
-
-                                    {
-                                        data.project_link !== "" &&
-                                        <td>
-                                            <span>
-                                                <a href={`https://${data.project_link}`} target="_blank">
-                                                    {data.project_link}
-                                                </a>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="arrow-up-right" aria-hidden="true"><path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd"></path></svg>
-                                            </span>
-                                        </td>
-                                    }
                                 </tr>
                             ))}
                         </tbody>
