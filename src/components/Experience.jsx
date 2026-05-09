@@ -2,6 +2,7 @@ import SectionTitle from "./SectionTitle";
 import TechStack from "./TechStack.jsx";
 import { v4 as uuid } from 'uuid'
 import { workExperiences } from "../constants/data.js";
+import HrefLink from "../components/HrefLink.jsx";
 // import Pdf from "../pdf/jeremyerikleong_resume.pdf";
 
 function Experience() {
@@ -12,7 +13,11 @@ function Experience() {
             <div>
                 {workExperiences && workExperiences.map(workExperience => {
                     return (
-                        <a href={workExperience.company_website} target="_blank" key={workExperience.id} className="experience-card">
+                        <HrefLink
+                            href={workExperience.company_website}
+                            key={workExperience.id}
+                            className="experience-card"
+                        >
                             <div className="experience-duration-text">
                                 {workExperience.position_duration}
                             </div>
@@ -37,15 +42,17 @@ function Experience() {
                                     })}
                                 </ul>
                             </div>
-                        </a>
+                        </HrefLink>
                     )
                 })
                 }
 
-                <a href="https://cv.jeremyerikleong.com" target="_blank" className="btn-resume">
+                <HrefLink
+                    href={"https://cv.jeremyerikleong.com"}
+                    className="btn-resume">
                     View Full Resume
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="arrow-up-right" aria-hidden="true"><path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd"></path></svg>
-                </a>
+                </HrefLink>
             </div>
         </section>
     )

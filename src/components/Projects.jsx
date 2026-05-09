@@ -5,6 +5,7 @@ import { listOfProjects } from '../constants/data.js';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FaDownload } from 'react-icons/fa6';
+import HrefLink from './HrefLink.jsx';
 
 function Projects() {
     let navigate = useNavigate();
@@ -54,36 +55,42 @@ function Projects() {
             <SectionTitle title="Pinned Projects" />
 
             {listOfProjects && listOfProjects.map(list => {
-                return <a href={list.project_link} target="_blank" key={list.id} className="project-card">
-                    <div className="project-content">
-                        <span className="project-title">
-                            {list.project_title}
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="arrow-up-right" aria-hidden="true"><path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd"></path></svg>
-                        </span>
+                return (
+                    <HrefLink
+                        href={list.project_link}
+                        key={list.id}
+                        className="project-card"
+                    >
+                        <div className="project-content">
+                            <span className="project-title">
+                                {list.project_title}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="arrow-up-right" aria-hidden="true"><path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd"></path></svg>
+                            </span>
 
-                        <p className="project-description">
-                            {list.project_description}
-                        </p>
+                            <p className="project-description">
+                                {list.project_description}
+                            </p>
 
-                        <ul className="experience-techstack-container">
-                            {list.project_techstack.map(techstack => {
-                                return <TechStack key={uuid()} label={techstack} />
-                            })}
-                        </ul>
+                            <ul className="experience-techstack-container">
+                                {list.project_techstack.map(techstack => {
+                                    return <TechStack key={uuid()} label={techstack} />
+                                })}
+                            </ul>
 
-                        {list.id === "p6" ?
-                            <div className="project-download-amount-display">
-                                <FaDownload size={ICON_SIZE} color={ICON_COLOR} />
-                                <p className="download-amount">
-                                    {downloadAmount.toLocaleString()} installs
-                                </p>
-                            </div> : null}
-                    </div>
+                            {list.id === "p6" ?
+                                <div className="project-download-amount-display">
+                                    <FaDownload size={ICON_SIZE} color={ICON_COLOR} />
+                                    <p className="download-amount">
+                                        {downloadAmount.toLocaleString()} installs
+                                    </p>
+                                </div> : null}
+                        </div>
 
-                    <div className="project-image">
-                        <img src={list.project_screenshot} alt="project-screenshot" />
-                    </div>
-                </a>
+                        <div className="project-image">
+                            <img src={list.project_screenshot} alt="project-screenshot" />
+                        </div>
+                    </HrefLink>
+                )
             })
             }
 

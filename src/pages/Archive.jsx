@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { archivedProjectTableHeader, archivedProjectTableData } from '../constants/data';
 import { Helmet } from 'react-helmet-async';
+import HrefLink from '../components/HrefLink';
 
 export default function Archive() {
     const navigate = useNavigate();
@@ -54,14 +55,11 @@ export default function Archive() {
 
                                     <td className="project-name">
                                         {data.project_link ? (
-                                            <a
+                                            <HrefLink
                                                 href={normalizeUrl(data.project_link)}
-                                                className="project-link"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
+                                                className="project-link">
                                                 {data.project_title}
-                                            </a>
+                                            </HrefLink>
                                         ) : (
                                             <span>{data.project_title}</span>
                                         )}

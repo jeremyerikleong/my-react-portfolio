@@ -37,13 +37,14 @@ function SocialMedia() {
     return (
         <ul className="social-media-container">
             {socialMediaArr && socialMediaArr.map(socialMedia => {
-                return <li className="social-media-icon" key={uuid()}>
-                    <a href={socialMedia.url} target="_blank" aria-label={socialMedia.platform}>
-                        <i className={'fab fa-xl ' + socialMedia.icon}></i>
-                    </a>
-                </li>
-            })
-            }
+                return (
+                    <li className="social-media-icon" key={uuid()}>
+                        <a href={socialMedia.url} target="_blank" aria-label={socialMedia.platform}>
+                            <i className={'fab fa-xl ' + socialMedia.icon}></i>
+                        </a>
+                    </li>
+                )
+            })}
         </ul>
     )
 }
