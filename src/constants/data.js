@@ -142,7 +142,7 @@ const archivedProjectTableData = [
         project_link: 'theboringdevs.netlify.app',
     },
     {
-        project_id: 'td25',
+        project_id: 'td5',
         project_year: 2024,
         project_title: 'Recipe App',
         project_techstack: ['React.js', 'Tailwind CSS', 'Vercel'],
