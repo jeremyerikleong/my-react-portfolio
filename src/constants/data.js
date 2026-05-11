@@ -4,9 +4,9 @@ const workExperiences = [
         position_duration: 'October 2024 - Present',
         position_title: 'Freelance & Self-Directed Learning Developer',
         company_name: 'Freelance / Personal Projects',
-        company_website: 'https://jeremyerikleong.com',
+        company_website: 'https://github.com/jeremyerikleong',
         experience_content: 'Built multiple projects using React, Node.js and deployed via cloud platforms such as Netlify, Vercel, and Render. Maintained active GitHub repositories and continuously improved personal development skills.',
-        experience_techstack: ['Tailwind CSS', 'React.js', 'React Native', 'Next.js', 'Typescript', 'Node.js', 'Express.js']
+        experience_techstack: ['Tailwind CSS', 'React.js', 'React Native', 'Next.js', 'TypeScript', 'Node.js', 'Express.js']
     },
     {
         id: 'e2',
