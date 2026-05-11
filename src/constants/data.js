@@ -1,6 +1,15 @@
 const workExperiences = [
     {
-        id: 'e1',
+        id: 'e3',
+        position_duration: 'October 2024 - Present',
+        position_title: 'Freelance & Self-Directed Learning Developer',
+        company_name: 'Freelance / Personal Projects',
+        company_website: 'https://jeremyerikleong.com',
+        experience_content: 'Built multiple projects using React, Node.js and deployed via cloud platforms such as Netlify, Vercel, and Render. Maintained active GitHub repositories and continuously improved personal development skills.',
+        experience_techstack: ['Tailwind CSS', 'React.js', 'React Native', 'Next.js', 'Typescript', 'Node.js', 'Express.js']
+    },
+    {
+        id: 'e2',
         position_duration: 'July 2022 - September 2024',
         position_title: 'Front-End Web Developer',
         company_name: 'TTwoWeb',
@@ -9,7 +18,7 @@ const workExperiences = [
         experience_techstack: ['HTML & CSS', 'PHP', 'jQuery', 'Bootstrap', 'Vue.js', 'Vuetify']
     },
     {
-        id: 'e2',
+        id: 'e1',
         position_duration: 'August 2019 - March 2021',
         position_title: 'Interactive Content Developer',
         company_name: 'MindSpace',
