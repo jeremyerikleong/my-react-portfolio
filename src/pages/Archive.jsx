@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { archivedProjectTableHeader, archivedProjectTableData } from '../constants/data';
 import { Helmet } from 'react-helmet-async';
@@ -7,10 +7,40 @@ import HrefLink from '../components/HrefLink';
 export default function Archive() {
     const navigate = useNavigate();
     const location = useLocation();
+    const [searchTerm, setSearchTerm] = useState('');
+    const searchInputRef = useRef(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location.pathname]);
+
+    useEffect(() => {
+        function handleKeyDown(evt) {
+            if (evt.key === 'Escape' && document.activeElement === searchInputRef.current) {
+                clearSearch();
+            }
+        }
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
+    const filteredProjects = archivedProjectTableData.filter(project => {
+        const searchValue = searchTerm.toLowerCase();
+
+        return (
+            project.project_title.toLowerCase().includes(searchValue) ||
+            project.project_year.toString().includes(searchValue) ||
+            project.project_techstack.some(tech =>
+                tech.toLowerCase().includes(searchValue)
+            )
+        );
+    });
+
+    function clearSearch() {
+        setSearchTerm('');
+    }
 
     function normalizeUrl(url) {
         if (!url) return '#';
@@ -39,46 +69,86 @@ export default function Archive() {
                     <h1 className="hero-title">All Projects</h1>
                 </div>
 
-                <div className="table-responsive-container">
-                    <table className="responsive-table">
-                        <thead>
-                            <tr>
-                                {archivedProjectTableHeader.map((header, index) => (
-                                    <th scope="col" key={index}>{header}</th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {archivedProjectTableData.map(data => (
-                                <tr key={data.project_id}>
-                                    <td className="project-year">{data.project_year}</td>
+                <div className="archive-search-container">
+                    <label className="archive-search-label sr-only" htmlFor="archive-search-input">
+                        Search projects
+                    </label>
 
-                                    <td className="project-name">
-                                        {data.project_link ? (
-                                            <HrefLink
-                                                href={normalizeUrl(data.project_link)}
-                                                className="project-link">
-                                                {data.project_title}
-                                            </HrefLink>
-                                        ) : (
-                                            <span>{data.project_title}</span>
-                                        )}
-                                    </td>
+                    <input
+                        id="archive-search-input"
+                        ref={searchInputRef}
+                        type="text"
+                        placeholder="Search projects by name, year, or tech stack"
+                        value={searchTerm}
+                        onChange={(evt) => setSearchTerm(evt.target.value)}
+                        className="archive-search-input"
+                    />
 
-                                    <td>
-                                        <ul className="archive-list-container">
-                                            {data.project_techstack.map((techstack, index) => (
-                                                <li key={index} className="archive-list-techstack">
-                                                    {techstack}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                    {searchTerm && (
+                        <button
+                            type="button"
+                            className="btn-clear"
+                            onClick={clearSearch}
+                            aria-label="Clear search">
+                            ×
+                        </button>
+                    )}
+
+                    {searchTerm.trim() !== '' && (
+                        <div className="archive-search-results-count">
+                            {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''} found
+                        </div>
+                    )}
                 </div>
+
+                {filteredProjects.length > 0 ?
+                    (
+                        <div className="table-responsive-container">
+                            <table className="responsive-table">
+                                <thead>
+                                    <tr>
+                                        {archivedProjectTableHeader.map((header, index) => (
+                                            <th scope="col" key={index}>{header}</th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredProjects.map(data => (
+                                        <tr key={data.project_id}>
+                                            <td className="project-year">{data.project_year}</td>
+
+                                            <td className="project-name">
+                                                {data.project_link ? (
+                                                    <HrefLink
+                                                        href={normalizeUrl(data.project_link)}
+                                                        className="project-link">
+                                                        {data.project_title}
+                                                    </HrefLink>
+                                                ) : (
+                                                    <span>{data.project_title}</span>
+                                                )}
+                                            </td>
+
+                                            <td>
+                                                <ul className="archive-list-container">
+                                                    {data.project_techstack.map((techstack, index) => (
+                                                        <li key={index} className="archive-list-techstack">
+                                                            {techstack}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    ) : <div className="no-results-container">
+                        <p>
+                            No projects found
+                        </p>
+                    </div>
+                }
             </main>
         </>
     )
