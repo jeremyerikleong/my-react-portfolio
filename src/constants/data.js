@@ -1,13 +1,13 @@
 const workExperiences = [
-    {
-        id: 'e3',
-        position_duration: 'October 2024 - Present',
-        position_title: 'Freelance & Self-Directed Learning Developer',
-        company_name: 'Freelance / Personal Projects',
-        company_website: 'https://github.com/jeremyerikleong',
-        experience_content: 'Built multiple projects using React, Node.js and deployed via cloud platforms such as Netlify, Vercel, and Render. Maintained active GitHub repositories and continuously improved personal development skills.',
-        experience_techstack: ['Tailwind CSS', 'React.js', 'React Native', 'Next.js', 'TypeScript', 'Node.js', 'Express.js']
-    },
+    // {
+    //     id: 'e3',
+    //     position_duration: 'October 2024 - Present',
+    //     position_title: 'Freelance & Self-Directed Learning Developer',
+    //     company_name: 'Freelance / Personal Projects',
+    //     company_website: 'https://github.com/jeremyerikleong',
+    //     experience_content: 'Built multiple projects using React, Node.js and deployed via cloud platforms such as Netlify, Vercel, and Render. Maintained active GitHub repositories and continuously improved personal development skills.',
+    //     experience_techstack: ['Tailwind CSS', 'React.js', 'React Native', 'Next.js', 'TypeScript', 'Node.js', 'Express.js']
+    // },
     {
         id: 'e2',
         position_duration: 'July 2022 - September 2024',
@@ -39,19 +39,27 @@ const listOfProjects = [
     },
     {
         id: 'p4',
-        project_title: 'MNGL',
-        project_description: 'MNGL is a web app that allows users to discover popular video games, explore detailed information, and personalize their experience through user accounts.',
-        project_techstack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Vercel'],
-        project_link: 'https://mynextgamelist.vercel.app',
-        project_screenshot: '/assets/projects/project-9.webp'
+        project_title: 'BMI Calculator',
+        project_description: 'A simple BMI calculator allow users to measure and maintain their health.',
+        project_techstack: ['React Native', 'TypeScript', 'Expo', 'EAS', 'Huawei AppGallery'],
+        project_link: "hehe",
+        project_screenshot: '/assets/projects/project-7.webp'
     },
     {
-        id: 'p5',
-        project_title: 'My Portfolio (v3)',
-        project_description: 'My third portfolio website, inspired by the Visual Studio Code text editor.',
-        project_techstack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel'],
-        project_link: "https://v3-jeremyerikleong.vercel.app",
-        project_screenshot: '/assets/projects/project-5.webp'
+        id: 'p2',
+        project_title: 'Parking Buddy',
+        project_description: 'A mobile app designed for users who have a hard time remembering where they parked.',
+        project_techstack: ['React Native', 'TypeScript', 'Supabase', 'Expo', 'EAS', 'Google Play Store'],
+        project_link: "hehe",
+        project_screenshot: '/assets/projects/project-8.webp'
+    },
+    {
+        id: 'p3',
+        project_title: 'Schulte Grid',
+        project_description: 'A Schulte Grid game that improves focus and helps reduce brain fog.',
+        project_techstack: ['React Native', 'TypeScript', 'Expo', 'EAS', 'Huawei AppGallery'],
+        project_link: "hehe",
+        project_screenshot: '/assets/projects/project-11.webp'
     },
     {
         id: 'p6',
@@ -95,6 +103,13 @@ const archivedProjectTableData = [
         project_link: 'thearmanihallson-klcc.com',
     },
     {
+        project_id: 'td15',
+        project_year: 2025,
+        project_title: 'MNGL',
+        project_techstack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Vercel'],
+        project_link: 'https://mynextgamelist.vercel.app',
+    },
+    {
         project_id: 'td17',
         project_year: 2025,
         project_title: 'Grocery Bill Splitter',
@@ -107,6 +122,13 @@ const archivedProjectTableData = [
         project_title: 'Cyberpunk Light Aquamarine Homepage',
         project_techstack: ['React.js', 'Tailwind CSS', 'Netlify'],
         project_link: 'cyberpunk-aquamarine-theme.netlify.app',
+    },
+    {
+        project_id: 'td19',
+        project_year: 2025,
+        project_title: 'My Portfolio (v3)',
+        project_techstack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+        project_link: "https://v3-jeremyerikleong.vercel.app",
     },
     {
         project_id: 'td11',
